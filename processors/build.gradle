@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+    compile project(':annotations')
+    compile 'com.google.auto.service:auto-service:1.0-rc3'//AutoService会自动在META-INF文件夹下生成Processor配置信息文件
+    compile 'com.squareup:javapoet:1.9.0'     //  一个可以用来创建源代码文件的强大库
+}
+
+//指定编译的编码
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
